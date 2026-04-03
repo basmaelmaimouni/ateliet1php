@@ -13,7 +13,7 @@ for($j=1;$j<=$lignes-$i;$j++)
 
 
     }
-}
+
 // boucle des etoiles :
 
 for($k=1;$k<=2*$i-1;$k++)
@@ -23,6 +23,9 @@ for($k=1;$k<=2*$i-1;$k++)
 
     }
     echo("<br>");
+
+}
+
 
 }
 
