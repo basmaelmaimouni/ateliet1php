@@ -24,9 +24,9 @@ $projects = [
     <style>
        :root {
         --primary: #DD7BDF;   /* بنفسجي */
-        --secondary: #FFBBE1; /* وردي فاتح */
+        --bg: #FFF58A;  /* أصفر فاتح */
         --dark: #B3BFFF;      /* أزرق فاتح */
-        --bg: #FFF58A;        /* أصفر فاتح */
+        --secondary: #FFBBE1;      /* وردي فاتح */
         --card-bg: rgba(255, 255, 255, 0.8);
 
        }
