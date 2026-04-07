@@ -23,13 +23,13 @@ $projects = [
     
     <style>
        :root {
-        --primary: #ebf995;   /* بنفسجي */
-        --bg: #edd3f8;  /* أصفر فاتح */
-        --dark: #B3BFFF;      /* أزرق فاتح */
-        --secondary: #FFBBE1;      /* وردي فاتح */
-        --card-bg: rgba(255, 255, 255, 0.8);
+        --primary: #92487A;   /* متوسط */
+        --secondary: #E49BA6; /* وردي */
+        --dark: #540863;      /* غامق */
+        --bg: #FFD3D5;        /* background */
+        --card-bg: rgba(255, 255, 255, 0.85);
+        }
 
-       }
 
         body {
             margin: 0;
