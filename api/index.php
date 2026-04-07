@@ -23,10 +23,10 @@ $projects = [
     
     <style>
         :root {
-            --primary: #FF8383; /* Blue Modern */
+            --primary: #f7adad; /* Blue Modern */
             --secondary: #FFC193;
-            --dark: #f2c5f6;
-            --bg: #b1f7e3;
+            --dark: #c5e5f6;
+            --bg: #e9b1f7;
             --card-bg: rgba(255, 255, 255, 0.8);
         }
 
