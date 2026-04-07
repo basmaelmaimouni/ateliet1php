@@ -24,7 +24,7 @@ $projects = [
     <style>
        :root {
         --primary: #DD7BDF;   /* بنفسجي */
-        --bg: #FFF58A;  /* أصفر فاتح */
+        --bg: #f8f2b7;  /* أصفر فاتح */
         --dark: #B3BFFF;      /* أزرق فاتح */
         --secondary: #FFBBE1;      /* وردي فاتح */
         --card-bg: rgba(255, 255, 255, 0.8);
@@ -57,7 +57,7 @@ $projects = [
         }
 
         .badge {
-            background: #dbeafe;
+            background: #ffbef7;
             color: var(--primary);
             padding: 5px 15px;
             border-radius: 50px;
