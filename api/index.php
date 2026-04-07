@@ -22,13 +22,14 @@ $projects = [
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root {
-            --primary: #ff7272; /* Blue Modern */
-            --secondary: #FFC193;
-            --dark: #f488b9;
-            --bg: #fba4ce;
-            --card-bg: rgba(255, 255, 255, 0.8);
-        }
+       :root {
+        --primary: #DD7BDF;   /* بنفسجي */
+        --secondary: #FFBBE1; /* وردي فاتح */
+        --dark: #B3BFFF;      /* أزرق فاتح */
+        --bg: #FFF58A;        /* أصفر فاتح */
+        --card-bg: rgba(255, 255, 255, 0.8);
+
+       }
 
         body {
             margin: 0;
