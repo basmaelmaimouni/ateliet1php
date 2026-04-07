@@ -25,7 +25,7 @@ $projects = [
         :root {
             --primary: #FF8383; /* Blue Modern */
             --secondary: #FFC193;
-            --dark: #9cf6ce;
+            --dark: #f2c5f6;
             --bg: #b1f7e3;
             --card-bg: rgba(255, 255, 255, 0.8);
         }
