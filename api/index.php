@@ -50,7 +50,7 @@ $projects = [
         header h1 {
             font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(to right, #9cf6ce, #FF8383);
+            background: linear-gradient(to right, #a466fb, #860afa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
