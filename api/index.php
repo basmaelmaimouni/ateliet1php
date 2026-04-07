@@ -23,8 +23,8 @@ $projects = [
     
     <style>
        :root {
-        --primary: #DD7BDF;   /* بنفسجي */
-        --bg: #f8f2b7;  /* أصفر فاتح */
+        --primary: #ebf995;   /* بنفسجي */
+        --bg: #edd3f8;  /* أصفر فاتح */
         --dark: #B3BFFF;      /* أزرق فاتح */
         --secondary: #FFBBE1;      /* وردي فاتح */
         --card-bg: rgba(255, 255, 255, 0.8);
