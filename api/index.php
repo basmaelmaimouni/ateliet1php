@@ -1,101 +1,268 @@
+<?php
+// On regroupe les exercices pour avoir le code et le PDF sur la même carte
+$projects = [
+    ["title" => "Exercice 1", "code" => "exercice1.php", "pdf" => "Rapport Exercice1.pdf", "atelier" => "1"],
+    ["title" => "Exercice 2", "code" => "exercice2.php", "pdf" => "Rapport Exercice2.pdf", "atelier" => "1"],
+    ["title" => "TD 1", "code" => "td1_Atelier1.php", "pdf" => "Rapport Exercice2.pdf", "atelier" => "1"],
+    ["title" => "TD 2", "code" => "td2_Atelier1.php", "pdf" => "Rapport Exercice2.pdf", "atelier" => "1"],
+    // ... Ajoute le reste ici avec la même structure
+    ["title" => "Exercice 3", "code" => "exercice3.php", "pdf" => "Rapport Exercice3.pdf", "atelier" => "2"],
+    ["title" => "Exercice 4", "code" => "exercice4.php", "pdf" => "Rapport Exercice4.pdf", "atelier" => "2"]
+];
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Basma Elmaimouni | Portfolio</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body { font-family: sans-serif; margin: 20px; line-height: 1.6; }
-        form { max-width: 600px; border: 1px solid #ccc; padding: 20px; border-radius: 8px; }
-        .field { margin-bottom: 15px; }
-        label { display: block; font-weight: bold; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        table, th, td { border: 1px solid black; padding: 10px; text-align: left; }
-        th { background-color: #f2f2f2; }
+        :root {
+            --primary: #2563eb; /* Blue Modern */
+            --secondary: #64748b;
+            --dark: #0f172a;
+            --bg: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            background-image: radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0px, transparent 50%), 
+                              radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.05) 0px, transparent 50%);
+            color: var(--dark);
+            min-height: 100vh;
+        }
+
+        /* NAVIGATION / HEADER */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #1e293b, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            background: #dbeafe;
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* FILTERS */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: 0.3s all cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--secondary);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-btn.active {
+            background: var(--dark);
+            color: white;
+            border-color: var(--dark);
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.1);
+        }
+
+        /* GRID */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 0 20px 80px;
+        }
+
+        /* CARD DESIGN */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-color: var(--primary);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .icon-box {
+            width: 45px;
+            height: 45px;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.2rem;
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--dark);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #e2e8f0;
+            color: var(--secondary);
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .btn-outline:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+
+        /* ANIMATION */
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
-    <h1>WELCOME TO MY PORTFOLIO</h1>
 
-	<?php
-    include_once 'traitements.php';
+<header>
+    <span class="badge">Portfolio de Projets</span>
+    <h1>Basma Elmaimouni</h1>
+    <p style="color: var(--secondary)">Développement Digital & IT</p>
+</header>
 
+<div class="filters">
+    <button class="filter-btn active" onclick="filterAtelier('all')">Tous les projets</button>
+    <button class="filter-btn" onclick="filterAtelier('1')">Atelier 1</button>
+    <button class="filter-btn" onclick="filterAtelier('2')">Atelier 2</button>
+</div>
 
-
-
-
-	$groupe="dev101";
-	$plt="vercel";
-
-	echo("<h2>premier site de $groupe sur $plt !!!");
-
-
-    echo("<h3><a href='/Compte Rendu Atelier 1.pdf'>Atelier 1 : </h3><a/>");
-     
-    triangle(10);
-
-	
-	
-	?>
-
-
-<h2>Formulaire d'Inscription Étudiant</h2>
-
-    <!-- Le formulaire -->
-    <form action="" method="POST">
-        <div class="field">
-            <label>Numéro d'inscription :</label>
-            <input type="text" name="num_inscription" required>
+<div class="container" id="projectGrid">
+    <?php foreach($projects as $p): ?>
+        <div class="card project-card fade-in" data-atelier="<?= $p['atelier'] ?>">
+            <div class="card-header">
+                <div class="icon-box">
+                    <i class="fas fa-folder-open"></i>
+                </div>
+                <div>
+                    <small style="color: var(--secondary); font-size: 0.7rem;">ATELIER <?= $p['atelier'] ?></small>
+                    <h3><?= htmlspecialchars($p['title']) ?></h3>
+                </div>
+            </div>
+            
+            <div class="actions">
+                <a href="<?= $p['code'] ?>" class="btn btn-primary">
+                    <i class="fas fa-code"></i> Code Source
+                </a>
+                <a href="<?= $p['pdf'] ?>" target="_blank" class="btn btn-outline">
+                    <i class="fas fa-file-pdf"></i> Rapport
+                </a>
+            </div>
         </div>
+    <?php endforeach; ?>
+</div>
 
-        <div class="field">
-            <label>Nom et prénom :</label>
-            <input type="text" name="nom_prenom" required>
-        </div>
+<script>
+    function filterAtelier(atelier) {
+        const cards = document.querySelectorAll('.project-card');
+        const buttons = document.querySelectorAll('.filter-btn');
 
-        <div class="field">
-            <label>Ville :</label>
-            <select name="ville">
-                <option value="Casablanca">Casablanca</option>
-                <option value="Rabat">Rabat</option>
-                <option value="Tanger">Tanger</option>
-                <option value="Marrakech">Marrakech</option>
-            </select>
-        </div>
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+            if((atelier === 'all' && btn.innerText.includes('Tous')) || btn.innerText.includes(atelier)) {
+                btn.classList.add('active');
+            }
+        });
 
-        <div class="field">
-            <label>Date de naissance :</label>
-            <input type="date" name="date_naissance" required>
-        </div>
+        cards.forEach(card => {
+            if (atelier === 'all' || card.getAttribute('data-atelier') === atelier) {
+                card.style.display = 'block';
+                card.style.animation = 'none';
+                card.offsetHeight; 
+                card.style.animation = 'fadeIn 0.5s ease forwards';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
 
-        <div class="field">
-            <label>Sexe :</label>
-            <input type="radio" name="sexe" value="Homme" checked> Homme
-            <input type="radio" name="sexe" value="Femme"> Femme
-        </div>
-
-        <div class="field">
-            <label>Loisirs :</label>
-            <input type="checkbox" name="loisirs[]" value="Sport"> Sport
-            <input type="checkbox" name="loisirs[]" value="Lecture"> Lecture
-            <input type="checkbox" name="loisirs[]" value="Voyage"> Voyage
-        </div>
-
-        <div class="field">
-            <label>Informations complémentaires :</label>
-            <textarea name="infos" rows="4" cols="40"></textarea>
-        </div>
-
-        <button type="submit" name="valider">Envoyer</button>
-    </form>
-
-    <hr>
-
-    
-
-
-
-
-    
 </body>
 </html>
