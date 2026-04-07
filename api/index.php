@@ -23,10 +23,10 @@ $projects = [
     
     <style>
         :root {
-            --primary: #2563eb; /* Blue Modern */
-            --secondary: #64748b;
-            --dark: #0f172a;
-            --bg: #f8fafc;
+            --primary: #FF8383; /* Blue Modern */
+            --secondary: #FFC193;
+            --dark: #FF3737;
+            --bg: #FFEDCE;
             --card-bg: rgba(255, 255, 255, 0.8);
         }
 
@@ -49,7 +49,7 @@ $projects = [
         header h1 {
             font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(to right, #1e293b, #2563eb);
+            background: linear-gradient(to right, #FFC193, #FF8383);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
@@ -205,7 +205,7 @@ $projects = [
 <header>
     <span class="badge">Portfolio de Projets</span>
     <h1>Basma Elmaimouni</h1>
-    <p style="color: var(--secondary)">Développement Digital & IT</p>
+    <p style="color: var(--secondary)">Développement Digital</p>
 </header>
 
 <div class="filters">
