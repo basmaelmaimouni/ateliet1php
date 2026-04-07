@@ -25,8 +25,8 @@ $projects = [
         :root {
             --primary: #FF8383; /* Blue Modern */
             --secondary: #FFC193;
-            --dark: #FF3737;
-            --bg: #FFEDCE;
+            --dark: #9cf6ce;
+            --bg: #b1f7e3;
             --card-bg: rgba(255, 255, 255, 0.8);
         }
 
@@ -49,7 +49,7 @@ $projects = [
         header h1 {
             font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(to right, #FFC193, #FF8383);
+            background: linear-gradient(to right, #9cf6ce, #FF8383);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
