@@ -7,7 +7,9 @@ $projects = [
     ["title" => "TD 2", "code" => "td2_Atelier1.php", "pdf" => "Rapport Exercice2.pdf", "atelier" => "1"],
     // ... Ajoute le reste ici avec la même structure
     ["title" => "Exercice 3", "code" => "exercice3.php", "pdf" => "Rapport Exercice3.pdf", "atelier" => "2"],
-    ["title" => "Exercice 4", "code" => "exercice4.php", "pdf" => "Rapport Exercice4.pdf", "atelier" => "2"]
+    ["title" => "Exercice 4", "code" => "exercice4.php", "pdf" => "Rapport Exercice4.pdf", "atelier" => "2"],
+    ["title" => "projet", "code" => "https://github.com/basmaelmaimouni/electro-store.git", "pdf" => "Rapport de projet.pdf", "atelier" => "store"]
+
 ];
 ?>
 
